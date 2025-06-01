@@ -43,23 +43,6 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<subDataset name="Data Seleksi" uuid="40952813-7e0a-429a-96ec-4295ba46ec07">
-		<queryString language="SQL">
-			<![CDATA[SELECT * FROM seleksi ORDER BY hasil_penilaian DESC;]]>
-		</queryString>
-		<field name="id_paket" class="java.lang.String">
-			<fieldDescription><![CDATA[]]></fieldDescription>
-		</field>
-		<field name="nama_paket" class="java.lang.String">
-			<fieldDescription><![CDATA[]]></fieldDescription>
-		</field>
-		<field name="jumlah_orang" class="java.lang.String">
-			<fieldDescription><![CDATA[]]></fieldDescription>
-		</field>
-		<field name="hasil_penilaian" class="java.math.BigDecimal">
-			<fieldDescription><![CDATA[]]></fieldDescription>
-		</field>
-	</subDataset>
 	<subDataset name="Hasiil Seleksi" uuid="23c0c75b-f4ca-4130-bd14-249a5141f4f3">
 		<queryString language="SQL">
 			<![CDATA[select * from seleksi]]>
@@ -240,7 +223,7 @@
 				<reportElement positionType="Float" x="10" y="254" width="165" height="1" uuid="3e22d4f6-c411-4705-80af-d22df508c240"/>
 			</line>
 			<componentElement>
-				<reportElement key="table 1" style="table 1" x="0" y="0" width="555" height="86" uuid="00f5f531-78c1-44ce-a2d8-815f42a9040d"/>
+				<reportElement key="table 1" style="table 1" x="100" y="0" width="277" height="86" uuid="00f5f531-78c1-44ce-a2d8-815f42a9040d"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Hasiil Seleksi" uuid="9a12075f-eedf-4975-b035-3983bfb0b5c1">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
