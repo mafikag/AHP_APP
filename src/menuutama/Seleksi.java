@@ -16,7 +16,7 @@ import koneksi.Koneksi;
 public class Seleksi extends javax.swing.JPanel {
     private Connection conn = new Koneksi().connect();
     private DefaultTableModel tabmode;
-    protected KriteriaAhp pKriteria = new KriteriaAhp(); 
+//    protected KriteriaAhp pKriteria = new KriteriaAhp(); 
     protected  String noId;
     /**
      * Creates new form Seleksi
@@ -27,7 +27,7 @@ public class Seleksi extends javax.swing.JPanel {
     }
     
     protected void dataTabel(){
-        Object[] Baris = {"Ranking","Id Paket","Nama Paket","Jumlah Orang","Hasil Penilaian"};
+        Object[] Baris = {"Ranking","Id Layanan","Nama Layanan","Hasil Penilaian"};
         tabmode = new DefaultTableModel(null, Baris);
         tabelRanking.setModel(tabmode);
 
@@ -38,12 +38,11 @@ public class Seleksi extends javax.swing.JPanel {
             int i = 1;
             while(hasil.next()){
                 String a = Integer.toString(i);
-                String b = hasil.getString("id_paket");
-                String c = hasil.getString("nama_paket");
-                String d = hasil.getString("jumlah_orang");
-                String e = hasil.getString("hasil_penilaian");
+                String b = hasil.getString("id_layanan");
+                String c = hasil.getString("nama_layanan");
+                String d = hasil.getString("hasil_penilaian");
                 
-                String[] data={a, b, c, d, e};
+                String[] data={a, b, c, d};
                 tabmode.addRow(data);
                 i++;
             }
@@ -203,7 +202,7 @@ public class Seleksi extends javax.swing.JPanel {
 
     private void tombolLihatPerhitunganAHPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolLihatPerhitunganAHPActionPerformed
         // TODO add your handling code here:
-        PerhitunganAHP dialog1 = new PerhitunganAHP(null, true);
+        perbandingankriteria dialog1 = new perbandingankriteria(null, true);
         dialog1.show();
     }//GEN-LAST:event_tombolLihatPerhitunganAHPActionPerformed
 

@@ -5,9 +5,13 @@
  */
 package menuutama;
 
+import LoginAdmin.Register;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import koneksi.Koneksi;
@@ -16,17 +20,16 @@ import koneksi.Koneksi;
  *
  * @author ENMA
  */
-public class PerhitunganAHP extends javax.swing.JDialog {
+public class perbandingankriteria extends javax.swing.JDialog {
     private Connection conn = new Koneksi().connect();
     private boolean sedangUpdate = false;
-    MatriksAhp matriks = new MatriksAhp();
+    hitungMatriks matriks = new hitungMatriks();
     private JTextField[][] fields;
     private JTextField[] sumfields;
     private JTextField[][] normalfields; // 5x5 matriks normalisasi
     private JTextField[] sumColsfields; // Jumlah tiap kolom (5)
     private JTextField[] normalSumFields; // jumlah dari matriks normalisasi
     private JTextField[] prioritasfields; // Bobot prioritas tiap baris (5)
-    private javax.swing.JButton btnHitung; // inisialisasi button hitung
  
     private void mapTextFields() {
     fields[0][0] = B1K1;
@@ -113,75 +116,29 @@ public class PerhitunganAHP extends javax.swing.JDialog {
     normalSumFields[3] = J4N;
     normalSumFields[4] = J5N;
 }
+
     
-    
-    private void hitungJumlahBaris() {
-    DecimalFormat df = new DecimalFormat("#.###");
-    for (int i = 0; i < 5; i++) {
-        double jumlah = 0.0;
-        for (int j = 0; j < 5; j++) {
-            try {
-                double nilai = Double.parseDouble(fields[i][j].getText());
-                jumlah += nilai;
-            } catch (NumberFormatException e) {
-                // Jika field kosong atau tidak valid, anggap 0
-            }
-        }
-        sumfields[i].setText(df.format(jumlah));
-    }
-}
- 
-   private void hitungNormalisasiDanPrioritas() {
-    double[][] matriksPerbandingan = new double[5][5];
-    double[] jumlahBaris = new double[5]; // Bukan jumlah kolom
-    DecimalFormat df = new DecimalFormat("#.###");
-
-    // Ambil nilai dari matriks perbandingan dan hitung jumlah baris
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
-            try {
-                matriksPerbandingan[i][j] = Double.parseDouble(fields[i][j].getText());
-            } catch (NumberFormatException e) {
-                matriksPerbandingan[i][j] = 0.0;
-            }
-            jumlahBaris[i] += matriksPerbandingan[i][j];
-        }
-    }
-
-    // Tampilkan jumlah baris ke JTextField (opsional, jika ingin)
-    for (int i = 0; i < 5; i++) {
-        sumfields[i].setText(df.format(jumlahBaris[i]));
-    }
-
-    // Hitung matriks normalisasi dan prioritas berdasarkan pembagian dengan jumlah baris
-    for (int i = 0; i < 5; i++) {
-        double jumlahNormalisasi = 0.0;
-        for (int j = 0; j < 5; j++) {
-            double nilaiNormalisasi = (jumlahBaris[i] != 0) ? matriksPerbandingan[i][j] / jumlahBaris[i] : 0.0;
-            normalfields[i][j].setText(df.format(nilaiNormalisasi));
-            jumlahNormalisasi += nilaiNormalisasi;
-        }
-
-        normalSumFields[i].setText(df.format(jumlahNormalisasi)); // Jumlah baris normalisasi
-    }
-    // Hitung jumlah kolom normalisasi dan tampilkan
-    
-    for (int j = 0; j < 5; j++) {
-        double jumlahKolom = 0.0;
+    //simpan data ke database
+    private void simpanMatriksKeDatabase() {
+    try{
+        int angka = 1;
         for (int i = 0; i < 5; i++) {
-            try {
-                double nilai = Double.parseDouble(normalfields[i][j].getText());
-                jumlahKolom += nilai;
-            } catch (NumberFormatException e) {
-            // Jika error parsing, lewati saja
+            String sql = "UPDATE kriteria set nilai_prioritas =? where kd_kriteria='K"+angka+"'";
+            PreparedStatement ps = conn.prepareStatement(sql);
+                String text = prioritasfields[i].getText().trim();
+                if (!text.isEmpty()) {
+                    double nilai = Double.parseDouble(text);
+                    ps.setDouble(1, nilai);
+                    ps.addBatch();
+                    ps.executeBatch();
             }
+            angka++;
         }
-        sumColsfields[j].setText(df.format(jumlahKolom));
-        double prioritas = jumlahKolom / 5.0; // Rata-rata
-        prioritasfields[j].setText(df.format(prioritas));
+        System.out.println("berhasil disimpan.");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Gagal menyimpan data: " + e.getMessage());
     }
 }
-
    
     //Isi matriks berdasarkan parameter
     private void setupListeners() {
@@ -190,13 +147,11 @@ public class PerhitunganAHP extends javax.swing.JDialog {
     
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
-            final int row = i;
-            final int col = j;
             fields[i][j].addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     if (!sedangUpdate) {
                         sedangUpdate = true;
-                        hitungJumlahBaris();
+                        matriks.hitungJumlahBaris(fields, sumfields);
                         sedangUpdate = false;
                     }
                 }
@@ -208,7 +163,7 @@ public class PerhitunganAHP extends javax.swing.JDialog {
     /**
      * Creates new form CobaDialog
      */
-    public PerhitunganAHP(java.awt.Frame parent, boolean modal) {
+    public perbandingankriteria(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         
@@ -342,29 +297,85 @@ public class PerhitunganAHP extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(91, 174, 228));
 
+        B1K1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B1K2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B1K2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B1K2ActionPerformed(evt);
             }
         });
 
+        B1K3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B1K4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B1K5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B2K1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B2K1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 B2K1PropertyChange(evt);
             }
         });
 
+        B2K2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B2K2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B2K2ActionPerformed(evt);
             }
         });
 
+        B2K3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B2K4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B2K5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B3K1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B3K2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B3K3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B3K4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B3K4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B3K4ActionPerformed(evt);
             }
         });
+
+        B3K5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B4K1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B4K2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B4K3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B4K4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B4K5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B5K1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B5K2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B5K3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B5K4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B5K5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -586,65 +597,135 @@ public class PerhitunganAHP extends javax.swing.JDialog {
 
         jPanel3.setBackground(new java.awt.Color(91, 174, 228));
 
+        B1K1N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B1K2N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B1K2N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B1K2NActionPerformed(evt);
             }
         });
 
+        B1K3N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B1K4N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B1K5N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J1N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B2K1N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B2K1N.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 B2K1NPropertyChange(evt);
             }
         });
 
+        B2K2N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B2K2N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B2K2NActionPerformed(evt);
             }
         });
 
+        B2K3N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B2K4N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B2K5N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J2N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B3K1N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B3K2N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B3K3N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B3K3N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B3K3NActionPerformed(evt);
             }
         });
 
+        B3K4N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B3K4N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B3K4NActionPerformed(evt);
             }
         });
 
+        B3K5N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J3N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         J3N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 J3NActionPerformed(evt);
             }
         });
 
+        B4K1N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B4K2N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B4K2N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B4K2NActionPerformed(evt);
             }
         });
 
+        B4K3N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B4K3N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B4K3NActionPerformed(evt);
             }
         });
 
+        B4K4N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B4K5N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J4N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B5K1N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B5K2N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B5K2N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B5K2NActionPerformed(evt);
             }
         });
 
+        B5K3N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        B5K4N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         B5K4N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B5K4NActionPerformed(evt);
             }
         });
+
+        B5K5N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        J5N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        NJ1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        NJ2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        NJ3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        NJ4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        NJ5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        P1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        P2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        P3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        P4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        P5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel15.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -1089,12 +1170,16 @@ public class PerhitunganAHP extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        simpanMatriksKeDatabase();
+        this.dispose();
+        perbandinganalternatif dialog1 = new perbandinganalternatif(null, true);
+        dialog1.show();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void hitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungActionPerformed
         sedangUpdate = true;
-        hitungJumlahBaris();
-        hitungNormalisasiDanPrioritas();
+        matriks.hitungJumlahBaris(fields, sumfields);
+        matriks.hitungNormalisasiDanPrioritas(fields, normalfields, sumfields, normalSumFields, sumColsfields, prioritasfields );
         sedangUpdate = false;
     }//GEN-LAST:event_hitungActionPerformed
 
@@ -1115,21 +1200,35 @@ public class PerhitunganAHP extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PerhitunganAHP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(perbandingankriteria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PerhitunganAHP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(perbandingankriteria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PerhitunganAHP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(perbandingankriteria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PerhitunganAHP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(perbandingankriteria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                PerhitunganAHP dialog = new PerhitunganAHP(new javax.swing.JFrame(), true);
+                perbandingankriteria dialog = new perbandingankriteria(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
