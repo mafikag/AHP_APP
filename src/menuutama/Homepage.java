@@ -87,8 +87,7 @@ public class Homepage extends javax.swing.JFrame {
         seleksi = new javax.swing.JButton();
         laporan = new javax.swing.JButton();
         dropdownLaporan = new javax.swing.JPanel();
-        laporanDataPaket = new javax.swing.JLabel();
-        laporanPrioritasKriteria = new javax.swing.JLabel();
+        LaporanData = new javax.swing.JLabel();
         laporanHasilSeleksi = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -166,31 +165,17 @@ public class Homepage extends javax.swing.JFrame {
         dropdownLaporan.setBackground(new java.awt.Color(255, 237, 192));
         dropdownLaporan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        laporanDataPaket.setBackground(new java.awt.Color(255, 237, 192));
-        laporanDataPaket.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        laporanDataPaket.setForeground(new java.awt.Color(86, 169, 222));
-        laporanDataPaket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        laporanDataPaket.setText("Laporan Daftar Layanan");
-        laporanDataPaket.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        laporanDataPaket.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        laporanDataPaket.setOpaque(true);
-        laporanDataPaket.addMouseListener(new java.awt.event.MouseAdapter() {
+        LaporanData.setBackground(new java.awt.Color(255, 237, 192));
+        LaporanData.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        LaporanData.setForeground(new java.awt.Color(86, 169, 222));
+        LaporanData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LaporanData.setText("Laporan Data ");
+        LaporanData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LaporanData.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        LaporanData.setOpaque(true);
+        LaporanData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                laporanDataPaketMouseClicked(evt);
-            }
-        });
-
-        laporanPrioritasKriteria.setBackground(new java.awt.Color(255, 237, 192));
-        laporanPrioritasKriteria.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        laporanPrioritasKriteria.setForeground(new java.awt.Color(86, 169, 222));
-        laporanPrioritasKriteria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        laporanPrioritasKriteria.setText("Laporan Daftar Kriteria");
-        laporanPrioritasKriteria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        laporanPrioritasKriteria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        laporanPrioritasKriteria.setOpaque(true);
-        laporanPrioritasKriteria.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                laporanPrioritasKriteriaMouseClicked(evt);
+                LaporanDataMouseClicked(evt);
             }
         });
 
@@ -212,18 +197,17 @@ public class Homepage extends javax.swing.JFrame {
         dropdownLaporan.setLayout(dropdownLaporanLayout);
         dropdownLaporanLayout.setHorizontalGroup(
             dropdownLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(laporanDataPaket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(laporanPrioritasKriteria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(LaporanData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(laporanHasilSeleksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         dropdownLaporanLayout.setVerticalGroup(
             dropdownLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dropdownLaporanLayout.createSequentialGroup()
-                .addComponent(laporanDataPaket, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(laporanPrioritasKriteria, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(LaporanData, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(laporanHasilSeleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(laporanHasilSeleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         logout.setBackground(new java.awt.Color(91, 174, 228));
@@ -262,7 +246,7 @@ public class Homepage extends javax.swing.JFrame {
                 .addComponent(seleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(laporan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(dropdownLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -375,10 +359,10 @@ public class Homepage extends javax.swing.JFrame {
         showSubMenu(dropdownLaporan);
     }//GEN-LAST:event_laporanMouseClicked
 
-    private void laporanDataPaketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_laporanDataPaketMouseClicked
+    private void LaporanDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanDataMouseClicked
         // TODO add your handling code here:
         try{
-            String namaFile = "src/laporan/LaporanPaketMakanan.jasper";
+            String namaFile = "src/laporan/LaporanData.jasper";
             HashMap parameter = new HashMap();
             parameter.put("PATH_IMG","src/image/");
             File report_file = new File(namaFile);
@@ -389,23 +373,7 @@ public class Homepage extends javax.swing.JFrame {
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }//GEN-LAST:event_laporanDataPaketMouseClicked
-
-    private void laporanPrioritasKriteriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_laporanPrioritasKriteriaMouseClicked
-        // TODO add your handling code here:
-        try{
-            String namaFile = "src/laporan/LaporanPrioritasKriteria.jasper";
-            HashMap parameter = new HashMap();
-            parameter.put("PATH_IMG","src/image/");
-            File report_file = new File(namaFile);
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(report_file.getPath());
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, conn);
-            JasperViewer.viewReport(jasperPrint, false);
-            JasperViewer.setDefaultLookAndFeelDecorated(true);
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }//GEN-LAST:event_laporanPrioritasKriteriaMouseClicked
+    }//GEN-LAST:event_LaporanDataMouseClicked
 
     private void laporanHasilSeleksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_laporanHasilSeleksiMouseClicked
         // TODO add your handling code here:
@@ -467,6 +435,7 @@ public class Homepage extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.JPanel ContentPanel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LaporanData;
     private javax.swing.JButton alternatif;
     private javax.swing.JPanel content;
     private javax.swing.JPanel dropdownLaporan;
@@ -479,9 +448,7 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JButton kriteria;
     private javax.swing.JButton laporan;
-    private javax.swing.JLabel laporanDataPaket;
     private javax.swing.JLabel laporanHasilSeleksi;
-    private javax.swing.JLabel laporanPrioritasKriteria;
     private javax.swing.JButton logout;
     private javax.swing.JButton seleksi;
     // End of variables declaration//GEN-END:variables

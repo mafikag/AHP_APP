@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporan data paket makanan" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a35a0630-0e03-4d5f-8867-47fd086f8695">
+	<property name="ireport.zoom" value="0.8264462809917359"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="LaporanData" uuid="bc29e314-eeb1-4fe0-b23e-d51c659a1dfc">
+		<queryString language="SQL">
+			<![CDATA[select*from kriteria
+]]>
+		</queryString>
+		<field name="kd_kriteria" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nama_kriteria" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nilai_prioritas" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[0.000]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="LaporanDataKriteria" uuid="dce99c95-e011-48fd-b8f8-a2f03050b187">
+		<queryString language="SQL">
+			<![CDATA[select*from alternatif
+]]>
+		</queryString>
+		<field name="id_layanan" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nama_layanan" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="PATH_IMG" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="119" splitType="Stretch">
+			<staticText>
+				<reportElement x="175" y="0" width="439" height="30" uuid="f0f68e88-9493-47b6-bea2-afcf1afc56bd"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="20" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Pemilihan Platform Digital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="30" width="344" height="30" uuid="24420867-119c-4247-bddc-fc9aa94c8b3b"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="20" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Makanan dan Minuman Online]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="75" width="457" height="30" uuid="ca1b2c60-1bab-4032-8065-18763fff9495"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="12" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Jl. Calung Raya No. Kav. 85, Kelurahan Mekar Jaya, Kecamatan Sukmajaya, Kota Depok, Jawa Barat 16411]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="0" y="116" width="802" height="1" uuid="3dca53f9-4a8b-488d-a484-2fbddfa8fea9"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="802" height="35" uuid="3a8735f4-c1cf-4e2c-900f-c320717556d5"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="18" isBold="true" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Platform Digital Makanan dan Minuman Online]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="234" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement positionType="Float" x="674" y="117" width="128" height="20" uuid="7a83569e-1d27-455b-98c0-5578e37dcdda"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="637" y="137" width="165" height="20" uuid="36646086-3158-4000-96bf-e9bb05734b25"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Manager Echo Space Coffe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="637" y="212" width="165" height="20" uuid="4a8ab4cd-d78f-45ec-b765-d677eedff35e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[(Manager)]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="637" y="212" width="165" height="1" uuid="c3985f27-b569-4ac7-ab40-81febbe1e589"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="637" y="117" width="37" height="20" uuid="f261e112-ec79-4b02-abe8-f6944dff98d9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Depok, ]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="47" y="0" width="360" height="80" uuid="5932ffdf-220c-4d5c-bcac-6a7730b4639f"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="LaporanData" uuid="b98b7b6d-f28d-40a4-9208-f3aef2eeaed3">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="ac61a238-75b4-4731-b410-cc8ffa99b978">
+						<jr:tableFooter style="table 1_TH" height="30"/>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="101d63ca-6f0f-4669-b1ae-9369a88726e9"/>
+								<textElement>
+									<font size="11" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{kd_kriteria}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="582477f7-9dff-4a1d-86fd-467f0538cf71">
+						<jr:tableFooter style="table 1_TH" height="30"/>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="0003522b-c1be-44dc-b1ab-f5bdbb8fa7b8"/>
+								<textElement>
+									<font size="11" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nama_kriteria}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="540b930f-32bc-44e5-b269-04975e8475cf">
+						<jr:tableFooter style="table 1_TH" height="30"/>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="bee5e63a-11b5-4e7b-ad49-c3ce636d8471"/>
+								<textElement>
+									<font size="11" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nilai_prioritas}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="407" y="0" width="360" height="80" uuid="bf091fe7-7fa5-4d7a-845a-0d157a3bd4e3"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="LaporanDataKriteria" uuid="41fef5d5-3e9c-4f3a-a24e-60ffea441f4f">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="7579ee9e-c371-49ab-90cd-5feb3ea64f3c">
+						<jr:tableFooter style="table 2_TH" height="30"/>
+						<jr:columnFooter style="table 2_CH" height="30"/>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="b5c96a92-b628-4004-bba2-de5b20173dd3"/>
+								<textElement>
+									<font size="11" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{id_layanan}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e4bad44d-d769-42b3-bb0c-3655412c3818">
+						<jr:tableFooter style="table 2_TH" height="30"/>
+						<jr:columnFooter style="table 2_CH" height="30"/>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="e951a075-d4d0-4c50-b28a-06897d74c5f2"/>
+								<textElement>
+									<font size="11" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nama_layanan}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
