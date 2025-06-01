@@ -1,2 +1,2 @@
 # AHP_APP
-Sebuah aplikasi pemilihan menu menggunakan netbeans dan menggunakan metode AHP
+Sebuah aplikasi pemilihan platform Digital menggunakan netbeans dan menggunakan metode AHP
