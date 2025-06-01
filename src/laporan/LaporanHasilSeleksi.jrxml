@@ -43,9 +43,43 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
 	<subDataset name="Hasiil Seleksi" uuid="23c0c75b-f4ca-4130-bd14-249a5141f4f3">
 		<queryString language="SQL">
 			<![CDATA[select * from seleksi]]>
+		</queryString>
+		<field name="id_layanan" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nama_layanan" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="hasil_penilaian" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="Kenyang" uuid="c54bd1e5-cae2-4588-b415-5c6e559e30a0">
+		<queryString language="SQL">
+			<![CDATA[select*from seleksi]]>
 		</queryString>
 		<field name="id_layanan" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
@@ -90,10 +124,6 @@
 			<line>
 				<reportElement positionType="Float" x="0" y="113" width="555" height="1" uuid="3dca53f9-4a8b-488d-a484-2fbddfa8fea9"/>
 			</line>
-			<image>
-				<reportElement x="0" y="4" width="99" height="71" uuid="660812a3-fbd9-42c0-a60d-43f6c97ed9ba"/>
-				<imageExpression><![CDATA["E:\\Joki ZARA\\Joki Terbaru AHP\\AHP_APP\\src\\image\\logo.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -106,7 +136,7 @@
 				<text><![CDATA[Laporan Hasil Seleksi Pemilihan Platfrom Digital]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="0" y="35" width="46" height="23" uuid="67da95e1-9474-4994-b2ec-9f6c29c9cbf2"/>
+				<reportElement positionType="Float" x="167" y="35" width="46" height="23" uuid="67da95e1-9474-4994-b2ec-9f6c29c9cbf2"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
 					<font fontName="Times New Roman" size="14" isBold="true" isItalic="false" pdfFontName="Helvetica"/>
 					<paragraph leftIndent="8"/>
@@ -114,14 +144,14 @@
 				<text><![CDATA[Tabel]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="46" y="35" width="54" height="23" uuid="5567da51-81e1-4ac1-87d7-eb50846cbf54"/>
+				<reportElement positionType="Float" x="213" y="35" width="54" height="23" uuid="5567da51-81e1-4ac1-87d7-eb50846cbf54"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
 					<font fontName="Times New Roman" size="14" isBold="true" isItalic="true" pdfFontName="Helvetica"/>
 				</textElement>
 				<text><![CDATA[Ranking]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="100" y="35" width="455" height="23" uuid="14641bf1-fc5e-4c7d-b4e3-1f851ffc3146"/>
+				<reportElement positionType="Float" x="267" y="35" width="455" height="23" uuid="14641bf1-fc5e-4c7d-b4e3-1f851ffc3146"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
 					<font fontName="Times New Roman" size="14" isBold="true" isItalic="false" pdfFontName="Helvetica"/>
 					<paragraph leftIndent="-2"/>
@@ -223,67 +253,67 @@
 				<reportElement positionType="Float" x="10" y="254" width="165" height="1" uuid="3e22d4f6-c411-4705-80af-d22df508c240"/>
 			</line>
 			<componentElement>
-				<reportElement key="table 1" style="table 1" x="100" y="0" width="277" height="86" uuid="00f5f531-78c1-44ce-a2d8-815f42a9040d"/>
+				<reportElement key="table 2" style="table 2" x="149" y="0" width="326" height="86" uuid="3070975b-e824-4f6b-85dd-2f241cd14c33"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="Hasiil Seleksi" uuid="9a12075f-eedf-4975-b035-3983bfb0b5c1">
+					<datasetRun subDataset="Kenyang" uuid="e008cc7e-c9e1-438f-ae58-6e9532499743">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="90" uuid="b7651d6e-007a-4cc2-97b5-d9dbd5d58306">
-						<jr:tableHeader style="table 1_TH" height="30"/>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30">
+					<jr:column width="90" uuid="4a9e1ab9-7af4-4531-addb-1fd1d3de99ed">
+						<jr:tableHeader style="table 2_TH" height="30"/>
+						<jr:tableFooter style="table 2_TH" height="30"/>
+						<jr:columnHeader style="table 2_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="11ce7feb-f132-4b0f-b428-2de79ab4b42e"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Serif" size="12"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="b8da89ae-11ad-4450-8f5a-36629181727f"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[ID Layanan]]></text>
+								<text><![CDATA[id_layanan]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
+						<jr:columnFooter style="table 2_CH" height="30"/>
+						<jr:detailCell style="table 2_TD" height="20">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="0882c905-1b04-4b79-9b0e-20561664443a"/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="4b96a130-603a-4fdd-bf20-db8e680cc853"/>
 								<textFieldExpression><![CDATA[$F{id_layanan}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="1c82de48-f558-4778-9d1e-8a0b562672d9">
-						<jr:tableHeader style="table 1_TH" height="30"/>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30">
+					<jr:column width="90" uuid="abb720bc-f9bd-4be2-b6b6-80ae18f0a165">
+						<jr:tableHeader style="table 2_TH" height="30"/>
+						<jr:tableFooter style="table 2_TH" height="30"/>
+						<jr:columnHeader style="table 2_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="06848894-4f99-4d36-8b93-47063e2ff598"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Serif" size="12"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="1275c17c-321d-4669-94b9-462480064182"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[Nama Layanan]]></text>
+								<text><![CDATA[nama_layanan]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
+						<jr:columnFooter style="table 2_CH" height="30"/>
+						<jr:detailCell style="table 2_TD" height="20">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="01c01e4c-728f-4abd-8b9f-adcadc96f2ac"/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="86a8d5dd-1392-466d-abe4-8a6dc5766c92"/>
 								<textFieldExpression><![CDATA[$F{nama_layanan}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="13efeb0b-db95-4955-ba35-c5c4b7171b5c">
-						<jr:tableHeader style="table 1_TH" height="30"/>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30">
+					<jr:column width="90" uuid="facc9fd4-b931-43a3-b187-f3d0e4856276">
+						<jr:tableHeader style="table 2_TH" height="30"/>
+						<jr:tableFooter style="table 2_TH" height="30"/>
+						<jr:columnHeader style="table 2_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="3b2380b9-3522-4d2f-89a9-d2c8279bda52"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Serif" size="11"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="0e647c6a-1646-4775-9b9e-92d159e25d05"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[Hasil Peniliaian]]></text>
+								<text><![CDATA[hasil_penilaian]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
+						<jr:columnFooter style="table 2_CH" height="30"/>
+						<jr:detailCell style="table 2_TD" height="20">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="d64dbd37-7d7e-4271-8e93-bfa3318c7937"/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="28b8cb92-102b-4858-af7d-6f4dee7e47d4"/>
 								<textFieldExpression><![CDATA[$F{hasil_penilaian}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
