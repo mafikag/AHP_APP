@@ -63,10 +63,109 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
 	<subDataset name="LaporanData" uuid="bc29e314-eeb1-4fe0-b23e-d51c659a1dfc">
 		<queryString language="SQL">
-			<![CDATA[select*from kriteria
-]]>
+			<![CDATA[select*from kriteria]]>
 		</queryString>
 		<field name="kd_kriteria" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
@@ -80,14 +179,38 @@
 	</subDataset>
 	<subDataset name="LaporanDataKriteria" uuid="dce99c95-e011-48fd-b8f8-a2f03050b187">
 		<queryString language="SQL">
-			<![CDATA[select*from alternatif
-]]>
+			<![CDATA[select*from alternatif]]>
 		</queryString>
 		<field name="id_layanan" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 		<field name="nama_layanan" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="Alter" uuid="9e7f6bd3-ca14-466e-bda3-036eb191a134">
+		<queryString language="SQL">
+			<![CDATA[select * from alternatif]]>
+		</queryString>
+		<field name="id_layanan" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nama_layanan" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="Krite" uuid="84055e60-360d-4b23-8724-20e869321b95">
+		<queryString language="SQL">
+			<![CDATA[select * from kriteria;]]>
+		</queryString>
+		<field name="kd_kriteria" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nama_kriteria" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nilai_prioritas" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[0.000]]></fieldDescription>
 		</field>
 	</subDataset>
 	<parameter name="PATH_IMG" class="java.lang.String"/>
@@ -170,81 +293,96 @@
 				<text><![CDATA[Depok, ]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement key="table 1" style="table 1" x="47" y="0" width="360" height="80" uuid="5932ffdf-220c-4d5c-bcac-6a7730b4639f"/>
+				<reportElement key="table 6" style="table 6" x="0" y="19" width="401" height="82" uuid="50ed3a68-adad-4e79-9702-d3fe44f1ec93"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="LaporanData" uuid="b98b7b6d-f28d-40a4-9208-f3aef2eeaed3">
+					<datasetRun subDataset="Alter" uuid="11ea8c37-37a8-437b-8166-d22492f7848e">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="90" uuid="ac61a238-75b4-4731-b410-cc8ffa99b978">
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
+					<jr:column width="90" uuid="9ccb008c-65ae-45a0-84f4-dc32a0ea8e18">
+						<jr:tableFooter style="table 6_TH" height="30"/>
+						<jr:columnHeader style="table 6_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="04d5e9ff-bbb1-46f8-b431-e271b67a8167"/>
+								<text><![CDATA[id_layanan]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 6_CH" height="30"/>
+						<jr:detailCell style="table 6_TD" height="20">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="101d63ca-6f0f-4669-b1ae-9369a88726e9"/>
-								<textElement>
-									<font size="11" isBold="true"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{kd_kriteria}]]></textFieldExpression>
+								<reportElement x="0" y="0" width="90" height="20" uuid="9251d85e-97f8-455c-babd-c8661d7b921b"/>
+								<textFieldExpression><![CDATA[$F{id_layanan}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="582477f7-9dff-4a1d-86fd-467f0538cf71">
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
+					<jr:column width="90" uuid="e8ebf02f-a27b-4655-b2d3-9424730277c3">
+						<jr:tableFooter style="table 6_TH" height="30"/>
+						<jr:columnHeader style="table 6_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="5e46df69-5065-468f-a1e4-b2ce39b585c7"/>
+								<text><![CDATA[nama_layanan]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 6_CH" height="30"/>
+						<jr:detailCell style="table 6_TD" height="20">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="0003522b-c1be-44dc-b1ab-f5bdbb8fa7b8"/>
-								<textElement>
-									<font size="11" isBold="true"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{nama_kriteria}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="540b930f-32bc-44e5-b269-04975e8475cf">
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="bee5e63a-11b5-4e7b-ad49-c3ce636d8471"/>
-								<textElement>
-									<font size="11" isBold="true"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{nilai_prioritas}]]></textFieldExpression>
+								<reportElement x="0" y="0" width="90" height="20" uuid="6615df7a-c9ba-4b35-8bf8-aa4031a97abe"/>
+								<textFieldExpression><![CDATA[$F{nama_layanan}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 				</jr:table>
 			</componentElement>
 			<componentElement>
-				<reportElement key="table 2" style="table 2" x="407" y="0" width="360" height="80" uuid="bf091fe7-7fa5-4d7a-845a-0d157a3bd4e3"/>
+				<reportElement key="table 7" style="table 7" x="401" y="19" width="401" height="82" uuid="bc9439df-6880-4426-be10-50b44731f609"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="LaporanDataKriteria" uuid="41fef5d5-3e9c-4f3a-a24e-60ffea441f4f">
+					<datasetRun subDataset="Krite" uuid="43cc2f20-5d52-44ed-927d-f21675512e7c">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="90" uuid="7579ee9e-c371-49ab-90cd-5feb3ea64f3c">
-						<jr:tableFooter style="table 2_TH" height="30"/>
-						<jr:columnFooter style="table 2_CH" height="30"/>
-						<jr:detailCell style="table 2_TD" height="20">
+					<jr:column width="90" uuid="6d37d92e-74cb-4b24-b60d-dcbf5b8bd3ee">
+						<jr:tableFooter style="table 7_TH" height="30"/>
+						<jr:columnHeader style="table 7_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="87c3b458-0189-48c5-aab7-7794c2e8fa21"/>
+								<text><![CDATA[kd_kriteria]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 7_CH" height="30"/>
+						<jr:detailCell style="table 7_TD" height="20">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="b5c96a92-b628-4004-bba2-de5b20173dd3"/>
-								<textElement>
-									<font size="11" isBold="true"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{id_layanan}]]></textFieldExpression>
+								<reportElement x="0" y="0" width="90" height="20" uuid="529f94af-95b6-447a-bc59-b7726af0a4fb"/>
+								<textFieldExpression><![CDATA[$F{kd_kriteria}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="e4bad44d-d769-42b3-bb0c-3655412c3818">
-						<jr:tableFooter style="table 2_TH" height="30"/>
-						<jr:columnFooter style="table 2_CH" height="30"/>
-						<jr:detailCell style="table 2_TD" height="20">
+					<jr:column width="90" uuid="6230befc-39eb-4ecc-a94d-142ef3bba489">
+						<jr:tableFooter style="table 7_TH" height="30"/>
+						<jr:columnHeader style="table 7_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="36ef3679-5de7-4624-bb60-763146fd50b7"/>
+								<text><![CDATA[nama_kriteria]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 7_CH" height="30"/>
+						<jr:detailCell style="table 7_TD" height="20">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="e951a075-d4d0-4c50-b28a-06897d74c5f2"/>
-								<textElement>
-									<font size="11" isBold="true"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{nama_layanan}]]></textFieldExpression>
+								<reportElement x="0" y="0" width="90" height="20" uuid="44be5234-edc5-412f-aab4-e2444f3be89b"/>
+								<textFieldExpression><![CDATA[$F{nama_kriteria}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="0e2554fd-02e1-4368-8a77-58a72779259c">
+						<jr:tableFooter style="table 7_TH" height="30"/>
+						<jr:columnHeader style="table 7_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="bb4ce253-7b4c-493b-ade2-b58ce656fe8c"/>
+								<text><![CDATA[nilai_prioritas]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 7_CH" height="30"/>
+						<jr:detailCell style="table 7_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="f2f2c94d-402d-4f39-bae8-3d1bd1076a5d"/>
+								<textFieldExpression><![CDATA[$F{nilai_prioritas}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
