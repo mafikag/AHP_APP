@@ -787,7 +787,7 @@ public class perbandinganalternatif extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(this, "Semua matriks telah disimpan.");
         matriks.hitungDanSimpanPrioritasAkhir();
         this.dispose();
-        Homepage home = new Homepage();
+        Home home = new Home();
         home.show();
     }
 

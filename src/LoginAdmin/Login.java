@@ -1,5 +1,4 @@
 package LoginAdmin;
-import menuutama.MenuUtama;
 import java.awt.event.KeyEvent;
 import java.awt.*;
 import javax.swing.*;
@@ -8,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import koneksi.Koneksi;
-import menuutama.Homepage;
+import menuutama.Home;
 
 /**
  *
@@ -53,7 +52,7 @@ public final class Login extends javax.swing.JFrame {
             if(hasil.next()){
                 if (user.equals(hasil.getString("user")) && pass.equals(hasil.getString("password"))){
                     JOptionPane.showMessageDialog(null, "Login Berhasil");
-                    new Homepage().show();
+                    new Home().show();
                     this.dispose();
                 }
             }else{

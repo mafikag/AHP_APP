@@ -17,9 +17,8 @@ public class alternatif extends javax.swing.JPanel {
     //koneksi mysql 
     private Connection conn = new Koneksi().connect();
     private addDialogAlternatif adddialog = new addDialogAlternatif(null, true);
-    private updateDialogAlternatif updatedialog = new updateDialogAlternatif(null, true);
-    public DefaultTableModel tabmode;
     private String noId;
+    public DefaultTableModel tabmode;
     
     /**
      * Creates new form NewJPanel
@@ -62,7 +61,9 @@ public class alternatif extends javax.swing.JPanel {
         
         noId = a;
         adddialog.setDataTabel(a, b);
+//        updateDialog.setDataTabel(a, b);
     }
+    
     
     protected void hapusDataPaket(){
         if(noId != null){
@@ -237,7 +238,8 @@ public class alternatif extends javax.swing.JPanel {
     private void tombolEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolEditActionPerformed
         // TODO add your handling code here:
         if(noId != null){
-            updatedialog.show();
+            updateDialogAlternatif updateDialog = new updateDialogAlternatif(null, noId);
+            updateDialog.setVisible(true);
             updateDataTabel();
             noId=null;
         }else{

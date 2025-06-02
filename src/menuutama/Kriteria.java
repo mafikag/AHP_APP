@@ -13,15 +13,14 @@ import koneksi.Koneksi;
  *
  * @author Neubri
  */
-public class PengaturanKriteria extends javax.swing.JPanel {
+public class Kriteria extends javax.swing.JPanel {
     private Connection conn = new Koneksi().connect();
     private DefaultTableModel tabmode;
     private String noId;
     private addDialogKriteria adddialog = new addDialogKriteria(null, true);
-    private updateDialogKriteria updatedialog = new updateDialogKriteria(null, true);
 
     
-    public PengaturanKriteria() {
+    public Kriteria() {
         initComponents();
         updateDataTabel();
 
@@ -237,7 +236,8 @@ public class PengaturanKriteria extends javax.swing.JPanel {
     private void tombolEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tombolEditMouseClicked
         // TODO add your handling code here:
         if(noId != null){
-            updatedialog.show();
+            updateDialogKriteria updateDialog = new updateDialogKriteria(null, noId);
+            updateDialog.setVisible(true);
             updateDataTabel();
             noId=null;
         }else{
