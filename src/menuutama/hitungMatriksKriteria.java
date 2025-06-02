@@ -15,7 +15,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 
-public class hitungMatriks {
+public class hitungMatriksKriteria {
     private boolean sedangUpdate = false;
 
     public void addReciprocalListener(JTextField source, JTextField target) {

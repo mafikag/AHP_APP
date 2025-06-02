@@ -23,7 +23,7 @@ import koneksi.Koneksi;
 public class perbandingankriteria extends javax.swing.JDialog {
     private Connection conn = new Koneksi().connect();
     private boolean sedangUpdate = false;
-    hitungMatriks matriks = new hitungMatriks();
+    hitungMatriksKriteria matriks = new hitungMatriksKriteria();
     private JTextField[][] fields;
     private JTextField[] sumfields;
     private JTextField[][] normalfields; // 5x5 matriks normalisasi
