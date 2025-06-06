@@ -90,7 +90,7 @@
 	</subDataset>
 	<parameter name="PATH_IMG" class="java.lang.String"/>
 	<queryString>
-                <![CDATA[SELECT * FROM alternatif;]]>
+		<![CDATA[SELECT * FROM alternatif;]]>
 	</queryString>
 	<background>
 		<band splitType="Stretch"/>
@@ -168,7 +168,7 @@
 				<text><![CDATA[Depok, ]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement key="table 6" style="table 6" x="0" y="19" width="401" height="82" uuid="50ed3a68-adad-4e79-9702-d3fe44f1ec93"/>
+				<reportElement key="table 6" style="table 6" x="175" y="19" width="198" height="82" uuid="50ed3a68-adad-4e79-9702-d3fe44f1ec93"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Alter" uuid="11ea8c37-37a8-437b-8166-d22492f7848e">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
@@ -178,6 +178,9 @@
 						<jr:columnHeader style="table 6_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="04d5e9ff-bbb1-46f8-b431-e271b67a8167"/>
+								<textElement textAlignment="Center">
+									<font size="11" isBold="true"/>
+								</textElement>
 								<text><![CDATA[id_layanan]]></text>
 							</staticText>
 						</jr:columnHeader>
@@ -185,6 +188,7 @@
 						<jr:detailCell style="table 6_TD" height="20">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="9251d85e-97f8-455c-babd-c8661d7b921b"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{id_layanan}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -194,6 +198,9 @@
 						<jr:columnHeader style="table 6_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="5e46df69-5065-468f-a1e4-b2ce39b585c7"/>
+								<textElement textAlignment="Center">
+									<font size="11" isBold="true"/>
+								</textElement>
 								<text><![CDATA[nama_layanan]]></text>
 							</staticText>
 						</jr:columnHeader>
@@ -201,6 +208,7 @@
 						<jr:detailCell style="table 6_TD" height="20">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="6615df7a-c9ba-4b35-8bf8-aa4031a97abe"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{nama_layanan}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -208,7 +216,7 @@
 				</jr:table>
 			</componentElement>
 			<componentElement>
-				<reportElement key="table 7" style="table 7" x="401" y="19" width="401" height="82" uuid="bc9439df-6880-4426-be10-50b44731f609"/>
+				<reportElement key="table 7" style="table 7" x="413" y="19" width="290" height="82" uuid="bc9439df-6880-4426-be10-50b44731f609"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Krite" uuid="43cc2f20-5d52-44ed-927d-f21675512e7c">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
@@ -218,6 +226,9 @@
 						<jr:columnHeader style="table 7_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="87c3b458-0189-48c5-aab7-7794c2e8fa21"/>
+								<textElement textAlignment="Center">
+									<font size="11" isBold="true"/>
+								</textElement>
 								<text><![CDATA[kd_kriteria]]></text>
 							</staticText>
 						</jr:columnHeader>
@@ -225,6 +236,7 @@
 						<jr:detailCell style="table 7_TD" height="20">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="529f94af-95b6-447a-bc59-b7726af0a4fb"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{kd_kriteria}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -234,6 +246,9 @@
 						<jr:columnHeader style="table 7_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="36ef3679-5de7-4624-bb60-763146fd50b7"/>
+								<textElement textAlignment="Center">
+									<font size="11" isBold="true"/>
+								</textElement>
 								<text><![CDATA[nama_kriteria]]></text>
 							</staticText>
 						</jr:columnHeader>
@@ -241,6 +256,7 @@
 						<jr:detailCell style="table 7_TD" height="20">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="44be5234-edc5-412f-aab4-e2444f3be89b"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{nama_kriteria}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -250,6 +266,9 @@
 						<jr:columnHeader style="table 7_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="bb4ce253-7b4c-493b-ade2-b58ce656fe8c"/>
+								<textElement textAlignment="Center">
+									<font size="11" isBold="true"/>
+								</textElement>
 								<text><![CDATA[nilai_prioritas]]></text>
 							</staticText>
 						</jr:columnHeader>
@@ -257,6 +276,7 @@
 						<jr:detailCell style="table 7_TD" height="20">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="f2f2c94d-402d-4f39-bae8-3d1bd1076a5d"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{nilai_prioritas}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>

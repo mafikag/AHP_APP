@@ -68,9 +68,7 @@ public class Seleksi extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelRanking = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tombolLihatPerhitunganAHP = new javax.swing.JButton();
 
@@ -109,11 +107,7 @@ public class Seleksi extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("- Klik tombol Update untuk mengupdate data tabel");
-
         jLabel3.setText("Catatan : ");
-
-        jLabel4.setText("- Hapus dengan mengklik data tabel yang ingin dihapus ");
 
         jLabel5.setText("- Ranking diurutkan berdasarkan hasil penilaian terbesar sampai terkecil paket makanan");
 
@@ -122,15 +116,10 @@ public class Seleksi extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
                     .addComponent(jLabel5))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(0, 111, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,11 +127,8 @@ public class Seleksi extends javax.swing.JPanel {
                 .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5))
+                .addComponent(jLabel5)
+                .addGap(46, 46, 46))
         );
 
         tombolLihatPerhitunganAHP.setBackground(new java.awt.Color(86, 169, 222));
@@ -218,9 +204,7 @@ public class Seleksi extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

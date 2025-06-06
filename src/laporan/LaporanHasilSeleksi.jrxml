@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporan hasil seleksi" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a35a0630-0e03-4d5f-8867-47fd086f8695">
 	<property name="ireport.zoom" value="1.9487171000000048"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="195"/>
+	<property name="ireport.y" value="288"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -114,6 +114,20 @@
 	<subDataset name="TableLaporanHasilSeleksi" uuid="3363c6b6-2298-4637-be1e-f7332245c6a6">
 		<queryString language="SQL">
 			<![CDATA[select*from seleksi]]>
+		</queryString>
+		<field name="id_layanan" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nama_layanan" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="hasil_penilaian" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="Hasil Seleksi Baru" uuid="86427045-bf13-4a82-849e-f87a40b115e9">
+		<queryString language="SQL">
+			<![CDATA[SELECT * FROM seleksi ORDER BY hasil_penilaian DESC;]]>
 		</queryString>
 		<field name="id_layanan" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
@@ -249,14 +263,14 @@
 				<text><![CDATA[ditentukan dari hasil penilaian platform digital nilai terbesar sampai terkecil.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="64" y="199" width="491" height="15" uuid="36c6a319-9abb-4c26-9033-8c49384d7639"/>
+				<reportElement positionType="Float" x="64" y="201" width="491" height="15" uuid="36c6a319-9abb-4c26-9033-8c49384d7639"/>
 				<textElement textAlignment="Left" markup="none">
 					<font fontName="Times New Roman" size="10" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[tertinggi merupakan platform digital terbaik untuk diterima sebagai rekomendasi paket makanan.]]></text>
+				<text><![CDATA[tertinggi merupakan platform digital terbaik untuk diterima sebagai rekomendasi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="23" y="199" width="144" height="15" uuid="5ac26a25-715d-4fc6-9c43-5fe17a660121"/>
+				<reportElement positionType="Float" x="23" y="201" width="144" height="15" uuid="5ac26a25-715d-4fc6-9c43-5fe17a660121"/>
 				<textElement textAlignment="Left" markup="none">
 					<font fontName="Times New Roman" size="10" isItalic="true"/>
 				</textElement>
@@ -287,18 +301,16 @@
 				<reportElement positionType="Float" x="10" y="359" width="165" height="1" uuid="3e22d4f6-c411-4705-80af-d22df508c240"/>
 			</line>
 			<componentElement>
-				<reportElement key="table 3" style="table 3" x="149" y="0" width="360" height="80" uuid="12543493-ea0d-43c1-bfef-41965a0f4769"/>
+				<reportElement key="table 3" style="table 3" x="149" y="29" width="360" height="91" uuid="12543493-ea0d-43c1-bfef-41965a0f4769"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="TableLaporanHasilSeleksi" uuid="c800d2de-80aa-408b-add3-6e2081cb97b0">
+					<datasetRun subDataset="Hasil Seleksi Baru" uuid="b3ae2037-7266-4899-9ea3-6777ae9e9786">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column width="90" uuid="2ca1edf5-a1c6-45b3-af60-0cc23af2ba54">
-						<jr:tableFooter style="table 3_TH" height="30"/>
-						<jr:columnFooter style="table 3_CH" height="30"/>
-						<jr:detailCell style="table 3_TD" height="20">
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="ce1b959f-4482-4d8c-8078-b54f959cb5ce"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="12" isBold="true" isItalic="false"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{id_layanan}]]></textFieldExpression>
@@ -306,12 +318,10 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="90" uuid="c4a04b92-8f78-44e8-9e3f-9e3932e7cadf">
-						<jr:tableFooter style="table 3_TH" height="30"/>
-						<jr:columnFooter style="table 3_CH" height="30"/>
-						<jr:detailCell style="table 3_TD" height="20">
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="d35b6fd7-1e57-4262-9320-ae2888ea0c66"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="12" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{nama_layanan}]]></textFieldExpression>
@@ -319,12 +329,10 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="90" uuid="a1f9548b-6ee9-4f1c-869f-bc494a1e04e6">
-						<jr:tableFooter style="table 3_TH" height="30"/>
-						<jr:columnFooter style="table 3_CH" height="30"/>
-						<jr:detailCell style="table 3_TD" height="20">
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="c0241a88-ea41-4d30-ab2f-7b4bb38100a7"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="12" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{hasil_penilaian}]]></textFieldExpression>
@@ -333,6 +341,61 @@
 					</jr:column>
 				</jr:table>
 			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="64" y="216" width="491" height="15" uuid="20bdd091-709e-4cae-85b4-d8f4d7ac7596"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="Times New Roman" size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[pemilihan platform digital makanan dan minuman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="149" y="6" width="84" height="23" uuid="5936fb61-990d-4fe2-a0f9-6d786fc558b1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="12" isBold="true" isItalic="false" pdfFontName="Helvetica"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[ID Layanan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="233" y="6" width="92" height="23" uuid="2e53eff3-1b06-406e-8f14-d04c005f2657"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="12" isBold="true" isItalic="false" pdfFontName="Helvetica"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[Nama Layanan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="325" y="6" width="92" height="23" uuid="8b55e4ea-bae5-465b-b196-dced1acf3edc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="12" isBold="true" isItalic="false" pdfFontName="Helvetica"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[Hasil Penilaian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table" positionType="Float" mode="Opaque" x="127" y="29" width="22" height="30" uuid="b727d30b-140a-458c-b63c-db4d0ced04dd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="10" isBold="true" isItalic="false" pdfFontName="Helvetica"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table" positionType="Float" mode="Opaque" x="127" y="59" width="22" height="30" uuid="7f8df449-9b34-498a-82c5-886e53d9910c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="10" isBold="true" isItalic="false" pdfFontName="Helvetica"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table" positionType="Float" mode="Opaque" x="127" y="89" width="22" height="30" uuid="0113b5a3-90af-4761-8709-7dca0c1b18d7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="14" isBold="true" isItalic="false" pdfFontName="Helvetica"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
