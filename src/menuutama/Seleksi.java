@@ -1,5 +1,7 @@
 
 package menuutama;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -202,8 +204,9 @@ public class Seleksi extends javax.swing.JPanel {
 
     private void tombolLihatPerhitunganAHPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolLihatPerhitunganAHPActionPerformed
         // TODO add your handling code here:
-        perbandingankriteria dialog1 = new perbandingankriteria(null, true);
-        dialog1.show();
+        perbandingankriteria Frame = new perbandingankriteria();
+        Frame.setVisible(true);
+        Frame.setUndecorated(false); 
     }//GEN-LAST:event_tombolLihatPerhitunganAHPActionPerformed
 
     private void tabelRankingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelRankingMouseClicked

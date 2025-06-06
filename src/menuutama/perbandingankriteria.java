@@ -5,22 +5,17 @@
  */
 package menuutama;
 
-import LoginAdmin.Register;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 import koneksi.Koneksi;
 
 /**
  *
- * @author ENMA
+ * @author Agiss
  */
-public class perbandingankriteria extends javax.swing.JDialog {
+public class perbandingankriteria extends javax.swing.JFrame {
     private Connection conn = new Koneksi().connect();
     private boolean sedangUpdate = false;
     hitungMatriks matriks = new hitungMatriks();
@@ -161,10 +156,9 @@ public class perbandingankriteria extends javax.swing.JDialog {
 }
 
     /**
-     * Creates new form CobaDialog
+     * Creates new form Test
      */
-    public perbandingankriteria(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public perbandingankriteria() {
         initComponents();
         
         fields = new JTextField[5][5];
@@ -176,7 +170,6 @@ public class perbandingankriteria extends javax.swing.JDialog {
         mapNormalisasiFields();
         setupListeners();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -291,7 +284,7 @@ public class perbandingankriteria extends javax.swing.JDialog {
         hitung = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1048,7 +1041,7 @@ public class perbandingankriteria extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1082,51 +1075,27 @@ public class perbandingankriteria extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void B1K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1K2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void B5K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField22ActionPerformed
-
-    private void B4K3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
-
-    private void B4K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
-
-    private void B3K5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
-
-    private void B3K4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3K4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B3K4ActionPerformed
-
-    private void B3K3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
-    private void B2K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2K2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B2K2ActionPerformed
+    }//GEN-LAST:event_B1K2ActionPerformed
 
     private void B2K1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_B2K1PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_B2K1PropertyChange
 
-    private void B1K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1K2ActionPerformed
+    private void B2K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2K2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_B1K2ActionPerformed
+    }//GEN-LAST:event_B2K2ActionPerformed
+
+    private void B3K4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3K4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B3K4ActionPerformed
 
     private void B1K2NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1K2NActionPerformed
         // TODO add your handling code here:
@@ -1168,20 +1137,21 @@ public class perbandingankriteria extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_B5K4NActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        simpanMatriksKeDatabase();
-        this.dispose();
-        perbandinganalternatif dialog1 = new perbandinganalternatif(null, true);
-        dialog1.show();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void hitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungActionPerformed
         sedangUpdate = true;
         matriks.hitungJumlahBaris(fields, sumfields);
         matriks.hitungNormalisasiDanPrioritas(fields, normalfields, sumfields, normalSumFields, sumColsfields, prioritasfields );
         sedangUpdate = false;
     }//GEN-LAST:event_hitungActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        simpanMatriksKeDatabase();
+        this.dispose();
+        perbandinganalternatif Frame = new perbandinganalternatif();
+        Frame.setVisible(true);
+        Frame.setUndecorated(false); 
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1210,35 +1180,15 @@ public class perbandingankriteria extends javax.swing.JDialog {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                perbandingankriteria dialog = new perbandingankriteria(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new perbandingankriteria().setVisible(true);
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField B1K1;
     private javax.swing.JTextField B1K1N;

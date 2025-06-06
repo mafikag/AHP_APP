@@ -7,18 +7,15 @@ package menuutama;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 import koneksi.Koneksi;
 
 /**
  *
- * @author ENMA
+ * @author Agiss
  */
-public class perbandinganalternatif extends javax.swing.JDialog {
+public class perbandinganalternatif extends javax.swing.JFrame {
     private Connection conn = new Koneksi().connect();
     private boolean sedangUpdate = false;
     hitungMatriksAlternatif matriks = new hitungMatriksAlternatif();
@@ -30,9 +27,9 @@ public class perbandinganalternatif extends javax.swing.JDialog {
     private JTextField[] prioritasfields; // Bobot prioritas tiap baris (5)
     private int matriksKe = 1; //index looping tampilan
 
-    perbandinganalternatif() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    Test2() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
  
     private void mapTextFields() {
     fields[0][0] = B1K1;
@@ -139,10 +136,9 @@ public class perbandinganalternatif extends javax.swing.JDialog {
 }
 
     /**
-     * Creates new form CobaDialog
+     * Creates new form Test2
      */
-    public perbandinganalternatif(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public perbandinganalternatif() {
         initComponents();
         
         fields = new JTextField[3][3];
@@ -154,7 +150,6 @@ public class perbandinganalternatif extends javax.swing.JDialog {
         mapNormalisasiFields();
         setupListeners();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -221,7 +216,7 @@ public class perbandinganalternatif extends javax.swing.JDialog {
         hitung = new javax.swing.JButton();
         nextBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -714,45 +709,29 @@ public class perbandinganalternatif extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void B1K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1K2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void B5K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField22ActionPerformed
-
-    private void B4K3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
-
-    private void B4K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
-
-    private void B3K5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
-
-    private void B3K3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
-    private void B2K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2K2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B2K2ActionPerformed
+    }//GEN-LAST:event_B1K2ActionPerformed
 
     private void B2K1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_B2K1PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_B2K1PropertyChange
 
-    private void B1K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1K2ActionPerformed
+    private void B2K2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2K2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_B1K2ActionPerformed
+    }//GEN-LAST:event_B2K2ActionPerformed
+
+    private void B1K1NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1K1NActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B1K1NActionPerformed
 
     private void B1K2NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1K2NActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_B1K2NActionPerformed
+
+    private void J1NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J1NActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J1NActionPerformed
 
     private void B2K1NPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_B2K1NPropertyChange
         // TODO add your handling code here:
@@ -770,29 +749,6 @@ public class perbandinganalternatif extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_J3NActionPerformed
 
-    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
-        // TODO add your handling code here:
-    simpanMatriksKeDatabase(matriksKe);
-    if (matriksKe < 5) {
-        matriksKe++;
-        resetMatriksSatu();
-        resetMatriksDua();
-        matriks.setDiagonalToOne(fields);
-        judul1.setText("Matriks Perbandingan Alternatif dengan K" + matriksKe);
-        judul2.setText("Matriks Normalisasi Alternatif dengan K" + matriksKe);
-        if (matriksKe == 5) {
-            nextBtn.setText("SELESAI");
-        }
-    } else {
-        JOptionPane.showMessageDialog(this, "Semua matriks telah disimpan.");
-        matriks.hitungDanSimpanPrioritasAkhir();
-        this.dispose();
-        Home home = new Home();
-        home.show();
-    }
-
-    }//GEN-LAST:event_nextBtnActionPerformed
-
     private void hitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungActionPerformed
         sedangUpdate = true;
         matriks.hitungJumlahBaris(fields, sumfields);
@@ -800,13 +756,27 @@ public class perbandinganalternatif extends javax.swing.JDialog {
         sedangUpdate = false;
     }//GEN-LAST:event_hitungActionPerformed
 
-    private void B1K1NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1K1NActionPerformed
+    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_B1K1NActionPerformed
-
-    private void J1NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J1NActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_J1NActionPerformed
+        simpanMatriksKeDatabase(matriksKe);
+        if (matriksKe < 5) {
+            matriksKe++;
+            resetMatriksSatu();
+            resetMatriksDua();
+            matriks.setDiagonalToOne(fields);
+            judul1.setText("Matriks Perbandingan Alternatif dengan K" + matriksKe);
+            judul2.setText("Matriks Normalisasi Alternatif dengan K" + matriksKe);
+            if (matriksKe == 5) {
+                nextBtn.setText("SELESAI");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Semua matriks telah disimpan.");
+            matriks.hitungDanSimpanPrioritasAkhir();
+            this.dispose();
+            Home home = new Home();
+            home.show();
+        }
+    }//GEN-LAST:event_nextBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -835,27 +805,15 @@ public class perbandinganalternatif extends javax.swing.JDialog {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                perbandinganalternatif dialog = new perbandinganalternatif(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new perbandinganalternatif().setVisible(true);
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField B1K1;
     private javax.swing.JTextField B1K1N;
